@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxifierProfile version="101" platform="MacOSX" product_id="2" product_minver="200">
+    <Options>
+        <Resolve>
+            <AutoModeDetection enabled="false"/>
+            <ViaProxy enabled="true">
+                <TryLocalDnsFirst enabled="false"/>
+            </ViaProxy>
+            <ExclusionList ExcludeSimpleHostnames="true" ExcludeLocalhost="true" ExcludeSelfHostname="true" ExcludeLocalDomain="true">localhost;%SimpleHostnames%;%ComputerName%;*.local;
+</ExclusionList>
+        </Resolve>
+        <Encryption mode="basic"/>
+        <HttpProxiesSupport enabled="true"/>
+        <HandleDirectConnections enabled="false"/>
+        <ConnectionLoopDetection enabled="true"/>
+        <ProcessServices enabled="true"/>
+        <ProcessOtherUsers enabled="false"/>
+    </Options>
+    <ProxyList>
+        <Proxy id="100" type="SOCKS5">
+            <Address>127.0.0.1</Address>
+            <Port>1080</Port>
+            <Options>0</Options>
+        </Proxy>
+        <Proxy id="101" type="HTTPS">
+            <Address>0.0.0.0</Address>
+            <Port>80</Port>
+            <Options>0</Options>
+        </Proxy>
+    </ProxyList>
+    <ChainList/>
+    <RuleList>
+        <Rule enabled="true">
+            <Name>V2ray</Name>
+            <Applications>v2ray</Applications>
+            <Action type="Direct"/>
+        </Rule>
+        <Rule enabled="true">
+            <Name>Localhost</Name>
+            <Targets>localhost; 127.0.0.1; ::1; %ComputerName%;192.168.*</Targets>
+            <Action type="Direct"/>
+        </Rule>
+        <Rule enabled="true">
+            <Name>Skype</Name>
+            <Applications>Skype</Applications>
+            <Targets>*skype*</Targets>
+            <Action type="Direct"/>
+        </Rule>
+        <Rule enabled="true">
+            <Name>RocketChat</Name>
+            <Applications>Rocket.Chat;</Applications>
+            <Targets>*.snapp.*; rocket.snapp.tech;178.22.121.35</Targets>
+            <Action type="Direct"/>
+        </Rule>
+        <Rule enabled="true">
+            <Name>Whatsapp</Name>
+            <Applications>WhatsApp</Applications>
+            <Action type="Direct"/>
+        </Rule>
+        <Rule enabled="true">
+            <Name>Spotify</Name>
+            <Applications>Spotify; "Chromium Embedded Framework"; "Spotify Helper"; "Spotify Helper (GPU)"; "Spotify Helper (Plugin)"; "Spotify Helper (Renderer)"; StartUpHelper; sp_relauncher</Applications>
+            <Action type="Proxy">100</Action>
+        </Rule>
+        <Rule enabled="true">
+            <Name>P30download</Name>
+            <Targets>*p30download*</Targets>
+            <Action type="Direct"/>
+        </Rule>
+        <Rule enabled="true">
+            <Name>Youtube</Name>
+            <Targets>*youtube.com;*googlevideo.com;*ytimg*;*ggpht*;*gstatic*</Targets>
+            <Action type="Proxy">100</Action>
+        </Rule>
+        <Rule enabled="true">
+            <Name>Recrutiee</Name>
+            <Targets>snapp.recruitee.com</Targets>
+            <Action type="Proxy">100</Action>
+        </Rule>
+        <Rule enabled="true">
+            <Name>Snapp</Name>
+            <Targets>*snapp*; 185.49.86.234; *.snappcloud.io; jira.snapp.ir; confluence.snapp.ir; rundeck.snapp.tech;172.16.*;79.175.*</Targets>
+            <Action type="Direct"/>
+        </Rule>
+        <Rule enabled="true">
+            <Name>Telegram</Name>
+            <Applications>Telegram; Autoupdate; HockeySDK; Lottie; MtProtoKitMac; PostboxMac; RLottieMac; Sparkle; SwiftSignalKitMac; TGUIKit; TelegramCoreMac; TelegramShare; Zip; fileop</Applications>
+            <Action type="Proxy">100</Action>
+        </Rule>
+        <Rule enabled="true">
+            <Name>Proxied</Name>
+            <Targets>www.bonbast.com; *.ultimate-guitar.com; *cdn*;*facebook*;*fb*; *blabla*; app.recruitee.com; *recruitee.com; *x*os*.com; *bbc*;*.gitlab.com;*genius.com; t.me;*udemy.com;*tasteofcinema.com;*developers.google.com</Targets>
+            <Action type="Proxy">100</Action>
+        </Rule>
+        <Rule enabled="true">
+            <Name>Resources</Name>
+            <Targets>*.mixpanel.*; *.js*; *css*; *amazonaws*; *.map</Targets>
+            <Action type="Proxy">100</Action>
+        </Rule>
+        <Rule enabled="true">
+            <Name>Movist</Name>
+            <Applications>Movist; CodeResources; Current; Headers; Resources; UniversalDetector; XADMaster</Applications>
+            <Action type="Block"/>
+        </Rule>
+        <Rule enabled="true">
+            <Name>Twitter</Name>
+            <Targets>*twitter*;*twt*;*twimg*;*.twitter.com;</Targets>
+            <Action type="Proxy">100</Action>
+        </Rule>
+        <Rule enabled="true">
+            <Name>Intellij</Name>
+            <Applications>goland; phpstorm; clhsdb; fsnotifier; hsdb; java; jjs; jspawnhelper; keytool; orbd; pack200; policytool; restarter; rmid; rmiregistry; servertool; tnameserv; unpack200</Applications>
+            <Action type="Proxy">101</Action>
+        </Rule>
+        <Rule enabled="true">
+            <Name>Parsonline</Name>
+            <Targets>*parsonline*</Targets>
+            <Action type="Direct"/>
+        </Rule>
+        <Rule enabled="true">
+            <Name>Banks</Name>
+            <Targets>*shaparak.ir; *.sb24.com</Targets>
+            <Action type="Direct"/>
+        </Rule>
+        <Rule enabled="true">
+            <Name>IrDirectAdmin</Name>
+            <Targets>*irdirectadmin*</Targets>
+            <Action type="Proxy">100</Action>
+        </Rule>
+        <Rule enabled="true">
+            <Name>Iranian Sites</Name>
+            <Targets>*.ir;*mul.ir</Targets>
+            <Action type="Direct"/>
+        </Rule>
+        <Rule enabled="true">
+            <Name>SequelPro</Name>
+            <Applications>"Sequel Pro"; FeedbackReporter; Growl; PSMTabBar; QueryKit; SPMySQL; "Sequel Pro"; SequelProTunnelAssistant; ShortcutRecorder; Sparkle; UniversalDetector; relaunch</Applications>
+            <Action type="Direct"/>
+        </Rule>
+        <Rule enabled="true">
+            <Name>Slack</Name>
+            <Targets>*slack*</Targets>
+            <Action type="Proxy">100</Action>
+        </Rule>
+        <Rule enabled="true">
+            <Name>Whatsapp</Name>
+            <Applications>WhatsApp; "Electron Framework"; Mantle; ReactiveCocoa; ShipIt; Squirrel; "WhatsApp Helper"; crashpad_handler</Applications>
+            <Action type="Direct"/>
+        </Rule>
+        <Rule enabled="true">
+            <Name>Slack</Name>
+            <Applications>Slack; "Electron Framework"; Mantle; ReactiveCocoa; ShipIt; "Slack Helper"; "Slack Helper (GPU)"; "Slack Helper (Plugin)"; "Slack Helper (Renderer)"; Squirrel; crashpad_handler</Applications>
+            <Targets>*slack*</Targets>
+            <Action type="Proxy">100</Action>
+        </Rule>
+        <Rule enabled="true">
+            <Name>Film</Name>
+            <Targets>*megaupload*</Targets>
+            <Action type="Direct"/>
+        </Rule>
+        <Rule enabled="true">
+            <Name>Gitlab</Name>
+            <Targets>*gitlab.com</Targets>
+            <Action type="Proxy">100</Action>
+        </Rule>
+        <Rule enabled="false">
+            <Name>Google</Name>
+            <Targets>*google*;*gstatic*</Targets>
+            <Action type="Proxy">100</Action>
+        </Rule>
+        <Rule enabled="true">
+            <Name>UsbMux</Name>
+            <Applications>usbmuxd</Applications>
+            <Action type="Direct"/>
+        </Rule>
+        <Rule enabled="true">
+            <Name>Default</Name>
+            <Action type="Proxy">100</Action>
+        </Rule>
+    </RuleList>
+</ProxifierProfile>
